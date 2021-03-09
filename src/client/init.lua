@@ -14,8 +14,8 @@
         * Service.GetContainer(containerId: string): Promise<Folder>
 
         Events:
-        * Service.Replicated: RBXScriptSignal
-        * Service.Dereplicated: RBXScriptSignal
+        * Service.Replicated: RBXScriptSignal<containerId: string, instance: Instance>
+        * Service.Dereplicated: RBXScriptSignal<containerId: string, instance: Instance>
 --]]
 local ServerStorage = game:GetService("ServerStorage")
 local RunService = game:GetService("RunService")

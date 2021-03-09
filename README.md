@@ -1,3 +1,5 @@
+> This project is still a huge WIP. Use it at your own risk, and expect issues.
+
 # ContainerService
 A Roblox service for selectively replicating assets to clients.
 
