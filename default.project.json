@@ -1,0 +1,16 @@
+{
+  "name": "ContainerService",
+  "tree": {
+    "$className": "DataModel",
+    "$ignoreUnknownInstances": true,
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "ContainerService": {
+        "$path": "src",
+        "Promise": {
+          "$path": "packages/Promise/lib"
+        }
+      }
+    }
+  }
+}

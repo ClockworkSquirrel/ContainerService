@@ -1,0 +1,3 @@
+[submodule "packages/Promise"]
+	path = packages/Promise
+	url = https://github.com/evaera/roblox-lua-promise
