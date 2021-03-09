@@ -24,8 +24,8 @@ local ContainerService = require(Replicated.ContainerService)
 * `Service.GetContainer(containerId: string): Promise<Folder>`
 
 ### Events
-* `Service.Replicated: RBXScriptSignal`
-* `Service.Dereplicated: RBXScriptSignal`
+* `Service.Replicated: RBXScriptSignal<containerId: string, instance: Instance>`
+* `Service.Dereplicated: RBXScriptSignal<containerId: string, instance: Instance>`
 ## ContainerService (Server)
 ```lua
 local Replicated = game:GetService("ReplicatedStorage")
