@@ -8,6 +8,46 @@ You can download the latest version from the Releases, or find a link to the mos
 **Download (Library):**\
 https://www.roblox.com/library/6494383686
 
+# Example Usage
+## Client
+```lua
+local Replicated = game:GetService("ReplicatedStorage")
+local ContainerService = require(Replicated.ContainerService)
+
+local function ItemAddedToContainer(instance: Instance)
+    instance.Parent = workspace
+end
+
+ContainerService.GetContainer("example"):andThen(function(container)
+    for index, item in ipairs(container:GetChildren()) do
+        ItemAddedToContainer(item)
+    end
+end)
+
+ContainerService.Replicated:Connect(function(containerId, item)
+    if containerId == "example" then
+        ItemAddedToContainer(item)
+    end
+end)
+```
+
+## Server
+```lua
+local Replicated = game:GetService("ReplicatedStorage")
+local ServerStorage = game:GetService("ServerStorage")
+local Players = game:GetService("Players")
+
+local ContainerService = require(Replicated.ContainerService)
+
+wait(30)
+
+for index, player in ipairs(Players:GetPlayers()) do
+    ContainerService.GetHandlePromise(player):andThen(function(handle)
+        return handle:Replicate("example", ServerStorage.House)
+    end)
+end
+```
+
 # API Overview
 This is a basic overview of the ContainerService API. You should parent the module to a location which can be accessed by both the server and client, such as ReplicatedStorage.
 
